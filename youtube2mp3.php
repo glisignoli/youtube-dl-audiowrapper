@@ -25,7 +25,8 @@ class MyDB extends SQLite3
     }
 }
 
-$db = new MyDB();
+$db = new MyDB(SQLITE3_OPEN_READONLY);
+$db->busyTimeout(10000);
 
 $result = $db->query('SELECT * FROM downloads');
 echo "<table border=1>";
